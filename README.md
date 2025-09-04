@@ -53,8 +53,7 @@ npm run dev
 
 1. Create account at [EmailJS.com](https://emailjs.com)
 2. Configure email service and template
-3. Copy `.env.example` to `.env.local`
-4. Add your EmailJS credentials
+3. Add your EmailJS credentials
 
 See `EMAIL_SETUP_GUIDE.md` for detailed instructions.
 
