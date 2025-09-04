@@ -13,10 +13,10 @@ To ensure your contact form works in production, you need to set up these enviro
 
 | Variable Name | Value | Environment |
 |---------------|-------|-------------|
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | `service_mcbqlsf` | Production, Preview, Development |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | `template_lhiub4f` | Production, Preview, Development |
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | `HwbbULAf-nyY0E9EW` | Production, Preview, Development |
-| `CONTACT_EMAIL` | `microsoftrajeevranjan@gmail.com` | Production, Preview, Development |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | `###########` | Production, Preview, Development |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | `#############` | Production, Preview, Development |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | `#############` | Production, Preview, Development |
+| `CONTACT_EMAIL` | `#############` | Production, Preview, Development |
 
 ### 3. Alternative: Using Vercel CLI
 
