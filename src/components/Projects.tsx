@@ -22,7 +22,7 @@ export default function Projects() {
         "Enhanced diagnostic speed for clinical workflows"
       ],
       category: "AI/ML",
-      github: "https://github.com",
+      github: "https://github.com/RAJEEVRANJAN0001/brainTumor",
       icon: "🧠"
     },
     {
@@ -37,7 +37,7 @@ export default function Projects() {
         "Real-time video streaming integration"
       ],
       category: "Computer Vision",
-      github: "https://github.com",
+      github: "https://github.com/RAJEEVRANJAN0001/Emotion-recognition",
       icon: "🎭"
     },
     {
@@ -52,7 +52,7 @@ export default function Projects() {
         "Balanced class distribution through augmentation"
       ],
       category: "Medical AI",
-      github: "https://github.com",
+      github: "https://github.com/RAJEEVRANJAN0001/Diabetic-Retinopathy-Classification",
       icon: "👁️"
     }
   ];
