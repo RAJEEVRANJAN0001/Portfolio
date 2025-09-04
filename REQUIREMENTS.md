@@ -5,7 +5,7 @@
 ### Core Features ✅
 - **Responsive Portfolio Website**: Complete with modern design and theme switching
 - **AI/ML Project Showcase**: Featuring Brain Tumor Detection (99.69% accuracy), Emotion Detection (80% accuracy), and Diabetic Retinopathy (80% accuracy)
-- **Contact System**: EmailJS integration sending to rajeevranjanpratapsingh7@gmail.com with local message storage
+- **Contact System**: EmailJS integration sending to microsoftrajeevranjan@gmail.com with local message storage
 - **Admin Panel**: Password-protected (portfolio2025) with message management, statistics, and export functionality
 - **Certifications Section**: Comprehensive display of AI/ML certifications with scores and completion details
 
@@ -63,7 +63,7 @@
 
 ## Deployment Ready
 - All components functional and error-free
-- EmailJS configured for rajeevranjanpratapsingh7@gmail.com
+- EmailJS configured for microsoftrajeevranjan@gmail.com
 - Admin panel accessible with password: portfolio2025
 - Responsive design working across all screen sizes
 - Professional presentation ready for employers
