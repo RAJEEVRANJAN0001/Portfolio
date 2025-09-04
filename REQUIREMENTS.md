@@ -63,7 +63,7 @@
 
 ## Deployment Ready
 - All components functional and error-free
-- EmailJS configured for rajeevranjanpratapsingh7@gmail.com
+- EmailJS configured for microsoftrajeevranjan@gmail.com
 - Admin panel accessible with password: portfolio2025
 - Responsive design working across all screen sizes
 - Professional presentation ready for employers
