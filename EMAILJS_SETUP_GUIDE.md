@@ -49,11 +49,11 @@ Reply directly to this email to respond to {{from_name}}.
    - **From Email**: Use the service email (your connected Gmail)
    - **Reply To**: `{{reply_to}}`
 
-5. Save the template and note down your **Template ID** (e.g., `template_abc789xyz`)
+5. Save the template and note down your **Template ID** (e.g., `##############`)
 
 ## Step 4: Get Your Public Key
 1. Go to **Account** → **General**
-2. Find your **Public Key** (you already have this: `HwbbULAf-nyY0E9EW`)
+2. Find your **Public Key** (you already have this: `##############`)
 
 ## Step 5: Update Your Environment Variables
 Update your `.env.local` file with the real values:
@@ -62,7 +62,7 @@ Update your `.env.local` file with the real values:
 # Replace these with your actual EmailJS values:
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_your_actual_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_your_actual_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=HwbbULAf-nyY0E9EW
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=#############
 CONTACT_EMAIL=microsoftrajeevranjan@gmail.com
 ```
 
