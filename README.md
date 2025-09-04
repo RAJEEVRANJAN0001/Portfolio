@@ -62,7 +62,6 @@ See `EMAIL_SETUP_GUIDE.md` for detailed instructions.
 ```
 src/
 ├── components/          # React components
-│   ├── AdminPanel.tsx   # Message management
 │   ├── Contact.tsx      # Contact form
 │   └── ...
 ├── contexts/           # Theme context
