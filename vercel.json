@@ -1,22 +1,6 @@
 {
   "version": 2,
   "name": "portfolio",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/certificates",
-      "dest": "/certificates"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "env": {
     "NEXT_PUBLIC_ADMIN_PASSWORD": "@admin-password"
   },
