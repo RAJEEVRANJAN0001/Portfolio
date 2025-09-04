@@ -31,16 +31,16 @@ vercel login
 
 # Set environment variables
 vercel env add NEXT_PUBLIC_EMAILJS_SERVICE_ID production
-# Enter: service_mcbqlsf
+
 
 vercel env add NEXT_PUBLIC_EMAILJS_TEMPLATE_ID production  
-# Enter: template_lhiub4f
+
 
 vercel env add NEXT_PUBLIC_EMAILJS_PUBLIC_KEY production
-# Enter: HwbbULAf-nyY0E9EW
+
 
 vercel env add CONTACT_EMAIL production
-# Enter: microsoftrajeevranjan@gmail.com
+
 ```
 
 ### 4. Deploy Your Project
@@ -81,12 +81,4 @@ If the contact form doesn't work in production:
 4. **Check Vercel Function Logs**: Monitor for server-side errors
 5. **Test EmailJS Directly**: Use EmailJS playground to test your service/template
 
-## Current Configuration Status
 
-- ✅ EmailJS Service ID: `service_mcbqlsf`
-- ✅ EmailJS Template ID: `template_lhiub4f`  
-- ✅ EmailJS Public Key: `HwbbULAf-nyY0E9EW`
-- ✅ Target Email: `microsoftrajeevranjan@gmail.com`
-- ✅ Local environment configured
-- ✅ `.env.local` added to `.gitignore`
-- ✅ `vercel.json` updated with proper configuration
