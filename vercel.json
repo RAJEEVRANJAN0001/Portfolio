@@ -1,14 +1,6 @@
 {
   "version": 2,
   "name": "portfolio",
-  "env": {
-    "NEXT_PUBLIC_ADMIN_PASSWORD": "@admin-password"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_ADMIN_PASSWORD": "@admin-password"
-    }
-  },
   "functions": {
     "src/pages/api/**/*.ts": {
       "runtime": "nodejs18.x"
