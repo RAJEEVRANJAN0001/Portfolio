@@ -24,7 +24,7 @@
       ]
     },
     {
-      "source": "/Certifcate/(.*)",
+      "source": "/Certificate/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
