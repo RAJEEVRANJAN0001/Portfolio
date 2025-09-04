@@ -16,7 +16,7 @@ export default function Footer() {
               Rajeev Ranjan Pratap Singh
             </h3>
             <p className="text-gray-400 mb-4">
-              Crafting intelligent solutions with AI & ML. Always exploring the frontier of technology.
+              Always exploring the frontier of technology.
             </p>
           </motion.div>
 
@@ -81,7 +81,6 @@ export default function Footer() {
         >
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} Rajeev Ranjan Pratap Singh. 
-            <span className="text-cyan-400"> Crafted with passion and AI</span> ✨
           </p>
         </motion.div>
       </div>

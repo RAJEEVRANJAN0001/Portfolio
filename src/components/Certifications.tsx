@@ -253,9 +253,9 @@ export default function Certifications() {
           viewport={{ once: true }}
         >
           {[
-            { label: 'Certifications', value: '5+', icon: '🎖️' },
-            { label: 'Achievement Score', value: '91.3%', icon: '🏆' },
-            { label: 'Specialized Areas', value: '4+', icon: '🚀' }
+            { label: 'Certifications', value: '5+', icon: '' },
+            { label: 'Achievement Score', value: '91.3%', icon: '' },
+            { label: 'Specialized Areas', value: '4+', icon: '' }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

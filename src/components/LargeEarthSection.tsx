@@ -253,7 +253,9 @@ export default function LargeEarthSection({ className = '' }: LargeEarthSectionP
               transition={{ duration: 0.8, delay: 0.9 }}
               viewport={{ once: true }}
             >
-              Crafting Intelligent Solutions with AI & ML
+              The future isn’t AI replacing us—it’s us reimagining what’s possible with AI."
+
+
             </motion.p>
             
             {/* Buttons with staggered animation */}

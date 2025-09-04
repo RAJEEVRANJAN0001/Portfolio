@@ -234,10 +234,10 @@ export default function Projects() {
           viewport={{ once: true }}
         >
           {[
-            { label: 'AI Projects', value: '15+', icon: '🤖' },
-            { label: 'Accuracy Rate', value: '99.69%', icon: '🎯' },
-            { label: 'Images Processed', value: '17K+', icon: '📸' },
-            { label: 'Technologies', value: '12+', icon: '⚡' }
+            { label: 'AI Projects', value: '15+', icon: '' },
+            { label: 'Accuracy Rate', value: '99.69%', icon: '' },
+            { label: 'Images Processed', value: '17K+', icon: '' },
+            { label: 'Technologies', value: '12+', icon: '' }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

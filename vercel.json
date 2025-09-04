@@ -1,3 +1,35 @@
 {
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "functions": {
+    "src/pages/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_EMAILJS_SERVICE_ID": "@emailjs_service_id",
+    "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID": "@emailjs_template_id", 
+    "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY": "@emailjs_public_key",
+    "CONTACT_EMAIL": "@contact_email"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
 }
