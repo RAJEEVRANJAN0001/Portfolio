@@ -18,46 +18,67 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
+      // Debug: Log environment variables
+      console.log('Environment Variables Check:');
+      console.log('SERVICE_ID:', emailjsConfig.SERVICE_ID);
+      console.log('TEMPLATE_ID:', emailjsConfig.TEMPLATE_ID);
+      console.log('PUBLIC_KEY:', emailjsConfig.PUBLIC_KEY);
+      
       // Check if EmailJS credentials are properly configured
-      if (emailjsConfig.SERVICE_ID === 'service_portfolio' || emailjsConfig.SERVICE_ID === 'service_abc123') {
-        throw new Error('EmailJS Service ID not configured. Please set up your EmailJS service.');
+      if (!emailjsConfig.SERVICE_ID || emailjsConfig.SERVICE_ID === 'service_portfolio' || emailjsConfig.SERVICE_ID === 'service_abc123') {
+        const error = `EmailJS Service ID not configured. Current value: ${emailjsConfig.SERVICE_ID}`;
+        console.error(error);
+        throw new Error(error);
       }
       
-      if (emailjsConfig.TEMPLATE_ID === 'template_contact' || emailjsConfig.TEMPLATE_ID === 'template_xyz789') {
-        throw new Error('EmailJS Template ID not configured. Please set up your EmailJS template.');
+      if (!emailjsConfig.TEMPLATE_ID || emailjsConfig.TEMPLATE_ID === 'template_contact' || emailjsConfig.TEMPLATE_ID === 'template_xyz789') {
+        const error = `EmailJS Template ID not configured. Current value: ${emailjsConfig.TEMPLATE_ID}`;
+        console.error(error);
+        throw new Error(error);
       }
       
-      if (emailjsConfig.PUBLIC_KEY === 'your_public_key_here') {
-        throw new Error('EmailJS Public Key not configured.');
+      if (!emailjsConfig.PUBLIC_KEY || emailjsConfig.PUBLIC_KEY === 'your_public_key_here') {
+        const error = `EmailJS Public Key not configured. Current value: ${emailjsConfig.PUBLIC_KEY}`;
+        console.error(error);
+        throw new Error(error);
       }
+      
+      console.log('✅ All credentials configured, initializing EmailJS...');
       
       // Initialize EmailJS with public key
       emailjs.init(emailjsConfig.PUBLIC_KEY);
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'microsoftrajeevranjan@gmail.com',
+        reply_to: formData.email,
+        timestamp: new Date().toISOString(),
+      };
+      
+      console.log('📧 Sending email with params:', templateParams);
       
       // Send email using EmailJS
       const result = await emailjs.send(
         emailjsConfig.SERVICE_ID,
         emailjsConfig.TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'microsoftrajeevranjan@gmail.com',
-          reply_to: formData.email,
-          timestamp: new Date().toISOString(),
-        }
+        templateParams
       );
       
-      console.log('Email sent successfully:', result);
+      console.log('✅ Email sent successfully:', result);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('❌ Failed to send email:', error);
       setSubmitStatus('error');
       
       // Log detailed error for debugging
       if (error instanceof Error) {
         console.error('Error details:', error.message);
+        console.error('Error stack:', error.stack);
+      } else {
+        console.error('Unknown error type:', typeof error, error);
       }
     } finally {
       setIsSubmitting(false);
@@ -215,13 +236,19 @@ export default function Contact() {
               )}
               
               {submitStatus === 'error' && (
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-red-400 text-center text-sm"
+                  className="text-red-400 text-center text-sm space-y-2"
                 >
-                  Failed to send message. Please check console or try emailing directly.
-                </motion.p>
+                  <p>❌ Failed to send message.</p>
+                  <p className="text-xs">
+                    Please check browser console (F12) for details or email directly to: 
+                    <a href="mailto:microsoftrajeevranjan@gmail.com" className="text-cyan-400 hover:underline ml-1">
+                      microsoftrajeevranjan@gmail.com
+                    </a>
+                  </p>
+                </motion.div>
               )}
             </form>
           </motion.div>
