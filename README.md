@@ -17,7 +17,7 @@ A modern, responsive portfolio showcasing AI/ML expertise with advanced contact 
 - Detailed metrics and technology stacks
 
 ###  **Advanced Contact System**
-- **Email Integration:** Direct to rajeevranjanpratapsingh7@gmail.com
+- **Email Integration:** Direct to microsoftrajeevranjan@gmail.com
 - **Message Storage:** Local "dropbox" system for visitor messages
 - **Admin Panel:** Password-protected message management
 - **Export Feature:** Download messages as JSON
