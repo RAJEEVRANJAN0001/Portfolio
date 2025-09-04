@@ -1,11 +1,6 @@
 {
   "version": 2,
   "name": "portfolio",
-  "functions": {
-    "src/pages/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
