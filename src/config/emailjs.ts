@@ -13,6 +13,6 @@ export const emailTemplateParams = {
   from_name: '{{from_name}}',
   from_email: '{{from_email}}',
   message: '{{message}}',
-  to_email: 'rajeevranjanpratapsingh7@gmail.com',
+  to_email: 'microsoftrajeevranjan@gmail.com',
   reply_to: '{{from_email}}',
 };

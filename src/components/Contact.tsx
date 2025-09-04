@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import emailjs from '@emailjs/browser';
 import { emailjsConfig } from '../config/emailjs';
-import { MessageStorage } from '../utils/messageStorage';
 import dynamic from 'next/dynamic';
 
 const SimpleStarField = dynamic(() => import('./SimpleStarField'), { ssr: false });
@@ -14,19 +13,23 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const { isDark } = useTheme();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      // Save message to storage first (as backup/dropbox)
-      const savedMessage = MessageStorage.saveMessage({
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      });
+      // Check if EmailJS credentials are properly configured
+      if (emailjsConfig.SERVICE_ID === 'service_portfolio' || emailjsConfig.SERVICE_ID === 'service_abc123') {
+        throw new Error('EmailJS Service ID not configured. Please set up your EmailJS service.');
+      }
       
-      console.log('Message saved to local storage:', savedMessage);
+      if (emailjsConfig.TEMPLATE_ID === 'template_contact' || emailjsConfig.TEMPLATE_ID === 'template_xyz789') {
+        throw new Error('EmailJS Template ID not configured. Please set up your EmailJS template.');
+      }
+      
+      if (emailjsConfig.PUBLIC_KEY === 'your_public_key_here') {
+        throw new Error('EmailJS Public Key not configured.');
+      }
       
       // Initialize EmailJS with public key
       emailjs.init(emailjsConfig.PUBLIC_KEY);
@@ -39,10 +42,9 @@ export default function Contact() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'rajeevranjanpratapsingh7@gmail.com',
+          to_email: 'microsoftrajeevranjan@gmail.com',
           reply_to: formData.email,
-          timestamp: savedMessage.timestamp,
-          message_id: savedMessage.id,
+          timestamp: new Date().toISOString(),
         }
       );
       
@@ -52,6 +54,11 @@ export default function Contact() {
     } catch (error) {
       console.error('Failed to send email:', error);
       setSubmitStatus('error');
+      
+      // Log detailed error for debugging
+      if (error instanceof Error) {
+        console.error('Error details:', error.message);
+      }
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -206,6 +213,16 @@ export default function Contact() {
                   Thank you! I'll get back to you soon.
                 </motion.p>
               )}
+              
+              {submitStatus === 'error' && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-400 text-center text-sm"
+                >
+                  Failed to send message. Please check console or try emailing directly.
+                </motion.p>
+              )}
             </form>
           </motion.div>
 
@@ -230,8 +247,8 @@ export default function Contact() {
                   { 
                     icon: '📧', 
                     label: 'Email', 
-                    value: 'rajeevranjanpratapsingh@gmail.com', 
-                    href: 'mailto:rajeevranjanpratapsingh@gmail.com',
+                    value: 'microsoftrajeevranjan@gmail.com', 
+                    href: 'mailto:microsoftrajeevranjan@gmail.com',
                     description: 'Send me an email directly'
                   },
                   { 

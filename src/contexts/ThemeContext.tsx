@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, startTransition } from 'react';
 
 interface ThemeContextType {
   isDark: boolean;
@@ -17,26 +17,44 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(true); // Default to dark theme
   const [isLoading, setIsLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDark(savedTheme === 'dark');
-    } else {
-      // Default to dark theme if no preference is saved
-      setIsDark(true);
-      localStorage.setItem('theme', 'dark');
-    }
-    setIsLoading(false);
+    setMounted(true);
+    
+    startTransition(() => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setIsDark(savedTheme === 'dark');
+      } else {
+        // Default to dark theme if no preference is saved
+        setIsDark(true);
+        localStorage.setItem('theme', 'dark');
+      }
+      setIsLoading(false);
+    });
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    startTransition(() => {
+      const newTheme = !isDark;
+      setIsDark(newTheme);
+      if (mounted) {
+        localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+      }
+    });
   };
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <ThemeContext.Provider value={{ isDark: true, toggleTheme: () => {}, isLoading: true }}>
+        {children}
+      </ThemeContext.Provider>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme, isLoading }}>

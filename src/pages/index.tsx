@@ -10,7 +10,6 @@ import Contact from '../components/Contact';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
-import AdminPanel from '../components/AdminPanel';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function Home() {
@@ -45,7 +44,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeToggle />
-      <AdminPanel />
       <Navbar />
       <main className="overflow-hidden">
         <LargeEarthSection />
