@@ -58,12 +58,6 @@ npm run dev
 
 See `EMAIL_SETUP_GUIDE.md` for detailed instructions.
 
-##  Admin Panel
-
-Access the admin panel by clicking the "Admin" button (bottom right):
-- **Password:** Set via environment variable `NEXT_PUBLIC_ADMIN_PASSWORD`
-- **Features:** View messages, mark as read, export data, direct email replies
-
 ##  Project Structure
 
 ```
